@@ -10,11 +10,13 @@ def solution(s):
             p = p+1
         elif s_list[i] == 'y' or s_list[i] == 'Y':
             y = y+1
-
-    # if p==y:
-    #     return True
-    # else:
-    #     return False
     return p == y
+
+# def solution(s):
+#     if (s.upper().count('P') == s.upper().count('Y')):
+#         return True
+#     return False
+#
+#     return p == y
 
 print(solution("pPoooyY"))

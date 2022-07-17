@@ -1,31 +1,17 @@
 ####################################################
-# 어떤 문장의 각 알파벳을 일정한 거리만큼 밀어서 다른 알파벳으로 바꾸는 암호화 방식
-# "AB"는 1만큼 밀면 "BC"가 되고, 3만큼 밀면 "DE"가 됩니다. "z"는 1만큼 밀면 "a"
+# 전화번호가 문자열 phone_number로 주어졌을 때,
+# 전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution 을 완성
+
 ####################################################
+# https://school.programmers.co.kr/learn/courses/30/lessons/12948
 
-# 공백은 아무리 밀어도 공백
-# s는 알파벳 소문자, 대문자, 공백
 
-def solution(s, n):
-    sentense = s
-    answer = ""
-    대문자 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    소문자 = "abcdefghijklmnopqrstuvwxyz"
+def solution(phone_number):
 
-    for i in range(len(sentense)):
-        if sentense[i] in 대문자:
-            new_idx = (대문자.find(sentense[i]) + n) % len(대문자)
-            answer += 대문자[new_idx]
-        elif sentense[i] in 소문자:
-            new_idx = (소문자.find(sentense[i]) + n) % len(소문자)
-            answer += 소문자[new_idx]
-        else:
-            answer += sentense[i]
-
-    return answer
+    return "*" * (len(phone_number) - 4) + phone_number[-4:]
 
 
 # print(solution())
-print(solution("AB", 1))
-print(solution("z", 1))
-print(solution("a B z", 4))
+print(solution("01033334444"))
+print(solution("027778888"))
+
